@@ -1,0 +1,161 @@
+{% extends 'layout.njk' %}
+
+{% block header %}
+    <p class="logo"> {{ page.logo }} </p>
+    <div onclick="toogleMenu()" class="toogle"></div>
+    <ul class="menu">
+        {% for link in page.linksHeader %}
+            <li> <a onclick="toogleMenu()" href="{{ link.link }}"> {{ link.name }} </a></li>
+        {% endfor %}
+    </ul>
+{% endblock header %}
+
+
+{% block content %}
+
+    <div class="background-red"></div>
+
+    <section class="banner" id="home">
+        
+        <div class="textBx">
+            <h2> {{ page.myName }} </h2>
+            <h3> {{ page.aboutMe }} </h3>
+        </div>
+
+        <div class="links-sociais">
+            <ul>
+                {% for link in page.linksSociais %}
+                    <li><a href="{{ link.url }}" target="_blank"><img src="{{ link.img }}" alt=""></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </section>    
+
+    <div class="efect">
+        {% for efect in page.efectsNuvens %}
+            <img src="{{ efect.src }}" alt="" style="--i:1">
+        {% endfor %}
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="sobre">
+
+        <div class="heading">
+            <h2> {{ page.about }} </h2>
+        </div>
+
+        <div class="content">
+
+            <div class="contentBx">
+                <h3> {{ page.titleAbout }} </h3>
+                <p> {{ page.textAbout }} </p>
+            </div>
+
+            <div class="img-about">
+                <img class="img" src="{{ page.imgAbout }}" alt="">
+            </div>
+
+        </div>
+        
+    </section>
+
+
+    <section class="services" id="competencias">
+
+        <div class="heading services">
+            <h2> {{ page.level }} </h2>
+            <p> {{ page.titleLevel }} </p>
+        </div>
+
+        <div class="content">
+            {% for service in page.services %}
+                <div class="servicesBx">
+                    <img src="{{ service.img }}" alt="">
+                    <h2 id="title-competencias"> {{ service.tecnologia }} </h2>
+                    <p> {{ service.info }} </p>
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+
+    <section class="projects" id="projetos">
+
+        <div class="heading">
+            <h2> {{ page.project }} </h2>
+            <p> {{ page.subProject }} </p>
+        </div>
+
+        <div class="content">
+            {% for project in page.projects %}
+                <div class="projectBx" >
+                    <img src="{{ project.img }}" alt="">
+                    <h4> {{ project.title }} </h4>
+                    <div class="menu-project">
+                        <span> <a href="/project/{{ project.id }}">View</a></span>
+                        <a href="{{ project.link }}" target="_blank"> <img src="{{ project.git }}" alt=""> </a> 
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+
+    <section class="contact" id="contato">
+
+        <div class="heading">
+            <h2> {{ page.contact }} </h2>
+            <p> {{ page.infoContact }} </p>
+        </div>
+
+        <div class="content">
+            
+            <div class="contactInfo">
+                <h3>Info Contato</h3>
+
+                <div class="contactInfoBox">
+                    {% for box in page.boxContact %}
+                        <div class="box">                        
+                            <div class="icon">
+                                <i class="material-icons"> {{ box.icon }} </i>
+                            </div>
+                            <div class="text">
+                                <h3> {{ box.name }} </h3>
+                                <p> {{ box.info }} </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            <div class="formBox">
+
+                <form action="https://api.staticforms.xyz/submit" method="POST">
+
+                    <input type="hidden" name="accessKey" value="a808a1bd-849d-4a49-83b2-c4a136cccb08">
+
+                    <h3>Mensagem</h3>
+                    <input type="text" name="name" placeholder="Nome" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <textarea name="message" placeholder="Mensagem" required ></textarea>
+                    
+                    <button type="submit" value="Submit">Enviar</button>
+
+                    <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/index.html#home">
+
+                </form>
+                
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="/script.js"></script>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/responsive.css">
+        <link rel="stylesheet" href="/project.css">
+        <link rel="icon" href="/images/avataaars.svg">
+        
+
+        <title> {{ project.title }} </title>
+    </head>
+    <body>
+
+        <section class="imagensSection">
+            <div class="imgs">
+                <img src="/images/nuvens/n1.png" class="cloud1" alt="">
+                <img src="/images/nuvens/n2.png" class="cloud2" alt="">
+                <img src="/images/nuvens/n3.png" class="cloud3" alt="">
+                <img src="/images/nuvens/n1.png" class="cloud4" alt="">
+                <img src="/images/nuvens/n2.png" class="cloud5" alt="">
+                <img src="/images/nuvens/n3.png" class="cloud6" alt="">
+                
+            </div>
+        </section>
+
+        <div class="iframe">
+            
+            <iframe src="https://www.youtube.com/embed/{{project.id}}" frameborder="0"></iframe>
+            <div class="box">
+                <a href="/#projetos">Voltar</a>
+                <h4> {{ project.title }}  </h4>
+            </div>
+        </div>
+        
+
+    </body>
+</html>
